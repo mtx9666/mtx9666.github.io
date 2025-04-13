@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Services - D&D Landscaping</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .maintenance-programs {
+            padding: 60px 0;
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .program-card {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            transition: transform 0.3s;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .program-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .program-card .price {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark-color);
+            margin: 15px 0;
+        }
+
+        .program-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .program-card ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .program-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .program-card ul li i {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        .maintenance-schedule {
+            background-color: var(--light-color);
+            padding: 60px 0;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .schedule-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .schedule-item i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .schedule-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .schedule-item ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        .schedule-item ul li {
+            padding: 8px 0;
+            color: #555;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .schedule-item ul li::before {
+            content: '•';
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            top: 8px;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        @media (max-width: 992px) {
+            .program-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .schedule-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .maintenance-programs {
+                padding: 50px 0;
+            }
+            
+            .maintenance-schedule {
+                padding: 50px 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .program-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .schedule-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .maintenance-programs {
+                padding: 40px 0;
+            }
+            
+            .program-card {
+                padding: 25px;
+            }
+            
+            .program-card h3 {
+                font-size: 1.4rem;
+            }
+            
+            .program-card .price {
+                font-size: 1.3rem;
+            }
+            
+            .program-card ul li {
+                padding: 8px 0;
+                font-size: 0.95rem;
+            }
+            
+            .maintenance-schedule {
+                padding: 40px 0;
+            }
+            
+            .schedule-item {
+                padding: 20px;
+            }
+            
+            .schedule-item i {
+                font-size: 2.2rem;
+            }
+            
+            .schedule-item h3 {
+                font-size: 1.4rem;
+            }
+            
+            .schedule-item ul li {
+                font-size: 0.95rem;
+            }
+            
+            .cta-section {
+                padding: 50px 0;
+            }
+            
+            .cta-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-section p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .maintenance-programs h2,
+            .maintenance-schedule h2,
+            .cta-section h2 {
+                font-size: 1.6rem;
+            }
+            
+            .program-card,
+            .schedule-item {
+                padding: 20px;
+            }
+            
+            .program-card h3,
+            .schedule-item h3 {
+                font-size: 1.3rem;
+            }
+            
+            .program-card .price {
+                font-size: 1.2rem;
+            }
+            
+            .program-card p,
+            .schedule-item p {
+                font-size: 0.9rem;
+            }
+            
+            .program-card ul li,
+            .schedule-item ul li {
+                font-size: 0.9rem;
+                padding: 6px 0;
+            }
+            
+            .program-card i,
+            .schedule-item i {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">D&D <span>Landscaping</span></a>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="maintenance.html">Maintenance</a></li>
+                    <li><a href="seasonal-tips.html">Seasonal Tips</a></li>
+                    <li><a href="emergency.html">Emergency</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                </ul>
+                <a href="quote.html" class="cta-button mobile-cta">Get a Quote</a>
+            </nav>
+            <a href="quote.html" class="cta-button">Get a Quote</a>
+        </div>
+    </header>
+
+    <!-- Maintenance Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Maintenance Services</h1>
+            <p>Professional maintenance programs to keep your landscape beautiful year-round</p>
+        </div>
+    </section>
+
+    <!-- Maintenance Programs -->
+    <section class="maintenance-programs">
+        <div class="container">
+            <h2>Our Maintenance Programs</h2>
+            <p>Choose the perfect maintenance plan for your property</p>
+            
+            <div class="program-grid">
+                <div class="program-card">
+                    <h3>Basic Care</h3>
+                    <div class="price">Starting at $99/month</div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Weekly lawn mowing</li>
+                        <li><i class="fas fa-check"></i> Basic edging and trimming</li>
+                        <li><i class="fas fa-check"></i> Leaf removal</li>
+                        <li><i class="fas fa-check"></i> Basic cleanup</li>
+                        <li><i class="fas fa-check"></i> Monthly property inspection</li>
+                    </ul>
+                    <a href="quote.html" class="cta-button">Get Started</a>
+                </div>
+
+                <div class="program-card">
+                    <h3>Enhanced Care</h3>
+                    <div class="price">Starting at $199/month</div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Everything in Basic Care</li>
+                        <li><i class="fas fa-check"></i> Bi-weekly pruning</li>
+                        <li><i class="fas fa-check"></i> Fertilization program</li>
+                        <li><i class="fas fa-check"></i> Weed control</li>
+                        <li><i class="fas fa-check"></i> Pest management</li>
+                    </ul>
+                    <a href="quote.html" class="cta-button">Get Started</a>
+                </div>
+
+                <div class="program-card">
+                    <h3>Premium Care</h3>
+                    <div class="price">Starting at $299/month</div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Everything in Enhanced Care</li>
+                        <li><i class="fas fa-check"></i> Weekly detailed pruning</li>
+                        <li><i class="fas fa-check"></i> Advanced pest control</li>
+                        <li><i class="fas fa-check"></i> Irrigation system maintenance</li>
+                        <li><i class="fas fa-check"></i> Seasonal color rotation</li>
+                    </ul>
+                    <a href="quote.html" class="cta-button">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Maintenance Schedule -->
+    <section class="maintenance-schedule">
+        <div class="container">
+            <h2>Maintenance Schedule</h2>
+            <p>Our year-round maintenance schedule ensures your landscape stays beautiful in every season</p>
+            
+            <div class="schedule-grid">
+                <div class="schedule-item">
+                    <i class="fas fa-sun"></i>
+                    <h3>Spring</h3>
+                    <ul>
+                        <li>Cleanup and debris removal</li>
+                        <li>Fertilization</li>
+                        <li>Pruning</li>
+                        <li>Irrigation system startup</li>
+                    </ul>
+                </div>
+
+                <div class="schedule-item">
+                    <i class="fas fa-umbrella-beach"></i>
+                    <h3>Summer</h3>
+                    <ul>
+                        <li>Regular mowing</li>
+                        <li>Weed control</li>
+                        <li>Pest management</li>
+                        <li>Irrigation maintenance</li>
+                    </ul>
+                </div>
+
+                <div class="schedule-item">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Fall</h3>
+                    <ul>
+                        <li>Leaf removal</li>
+                        <li>Winter preparation</li>
+                        <li>Plant protection</li>
+                        <li>Irrigation system winterization</li>
+                    </ul>
+                </div>
+
+                <div class="schedule-item">
+                    <i class="fas fa-snowflake"></i>
+                    <h3>Winter</h3>
+                    <ul>
+                        <li>Snow removal</li>
+                        <li>Ice management</li>
+                        <li>Equipment maintenance</li>
+                        <li>Planning for spring</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Maintain Your Landscape?</h2>
+            <p>Contact us today to discuss your maintenance needs and get a customized plan for your property.</p>
+            <a href="quote.html" class="cta-button">Request a Quote</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>D&D Landscaping</h3>
+                    <p>Professional landscaping and irrigation services to enhance your outdoor space.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="maintenance.html">Maintenance</a></li>
+                        <li><a href="seasonal-tips.html">Seasonal Tips</a></li>
+                        <li><a href="quote.html">Get a Quote</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html#landscaping">Landscaping</a></li>
+                        <li><a href="services.html#irrigation">Irrigation</a></li>
+                        <li><a href="services.html#maintenance">Maintenance</a></li>
+                        <li><a href="services.html#design">Design</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Garden Street, City, State 12345</p>
+                    <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@ddlandscaping.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 D&D Landscaping. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
+            
+            menuToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                
+                // Animate hamburger icon
+                const spans = menuToggle.querySelectorAll('span');
+                spans.forEach(span => span.classList.toggle('active'));
+            });
+        });
+    </script>
+</body>
+</html> 
