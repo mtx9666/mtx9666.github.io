@@ -195,6 +195,21 @@
                 font-size: 0.85rem;
             }
         }
+
+        .error-message {
+            color: #dc3545;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .form-control.error {
+            border-color: #dc3545;
+        }
+
+        .form-control.error + .error-message {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -242,25 +257,34 @@
                 <!-- Success Page -->
                 <input type="hidden" name="_next" value="https://mtx9666.github.io/thank-you.html">
                 
+                <!-- Add FormSubmit configuration -->
+                <input type="hidden" name="_subject" value="New Quote Request from D&D Landscaping">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_autoresponse" value="Thank you for your quote request. We'll get back to you soon!">
+                
                 <div class="form-row">
                     <div class="form-group">
                         <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" required class="form-control">
+                        <div class="error-message">Please enter your name</div>
                     </div>
                     <div class="form-group">
                         <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" required class="form-control">
+                        <div class="error-message">Please enter a valid email address</div>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" required>
+                        <input type="tel" id="phone" name="phone" required class="form-control" pattern="[0-9]{10}">
+                        <div class="error-message">Please enter a valid 10-digit phone number</div>
                     </div>
                     <div class="form-group">
                         <label for="address">Property Address *</label>
-                        <input type="text" id="address" name="address" required>
+                        <input type="text" id="address" name="address" required class="form-control">
+                        <div class="error-message">Please enter your address</div>
                     </div>
                 </div>
 
@@ -288,7 +312,8 @@
 
                 <div class="form-group">
                     <label for="message">Project Details *</label>
-                    <textarea id="message" name="message" required></textarea>
+                    <textarea id="message" name="message" required class="form-control" rows="4"></textarea>
+                    <div class="error-message">Please provide project details</div>
                 </div>
 
                 <button type="submit" class="submit-button">Submit Quote Request</button>
@@ -338,7 +363,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 D&D Landscaping. All Rights Reserved.</p>
+                <p>&copy; 2024 D&D Landscaping. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -355,6 +380,70 @@
                 // Animate hamburger icon
                 const spans = menuToggle.querySelectorAll('span');
                 spans.forEach(span => span.classList.toggle('active'));
+            });
+        });
+
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            const form = this;
+            const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+            let isValid = true;
+
+            // Remove existing error states
+            form.querySelectorAll('.form-control').forEach(input => {
+                input.classList.remove('error');
+            });
+
+            // Check each required field
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    input.classList.add('error');
+                    isValid = false;
+                }
+                
+                // Special validation for email
+                if (input.type === 'email' && input.value) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(input.value)) {
+                        input.classList.add('error');
+                        isValid = false;
+                    }
+                }
+                
+                // Special validation for phone
+                if (input.type === 'tel' && input.value) {
+                    const phoneRegex = /^[0-9]{10}$/;
+                    if (!phoneRegex.test(input.value.replace(/\D/g, ''))) {
+                        input.classList.add('error');
+                        isValid = false;
+                    }
+                }
+            });
+
+            if (!isValid) {
+                e.preventDefault();
+                return;
+            }
+
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            // Re-enable button after 2 seconds (form will have redirected if successful)
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }, 2000);
+        });
+
+        // Real-time validation
+        document.querySelectorAll('.form-control').forEach(input => {
+            input.addEventListener('input', function() {
+                if (this.value.trim()) {
+                    this.classList.remove('error');
+                }
             });
         });
     </script>

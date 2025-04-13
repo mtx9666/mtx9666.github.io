@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -269,4 +270,271 @@
         </div>
     </footer>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - D&D Landscaping</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .resources-section {
+            padding: 60px 0;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .resource-card {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            transition: transform 0.3s;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .resource-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .resource-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .resource-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .resource-card ul li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .resource-card ul li:before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .resource-card .download-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .resource-card .download-link:hover {
+            text-decoration: underline;
+        }
+
+        .faq-section {
+            background-color: var(--light-color);
+            padding: 60px 0;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">D&D <span>Landscaping</span></a>
+            <nav>
+                <ul>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="maintenance.html">Maintenance</a></li>
+                    <li><a href="seasonal-tips.html">Seasonal Tips</a></li>
+                    <li><a href="emergency.html">Emergency</a></li>
+                    <li><a href="resources.html" class="active">Resources</a></li>
+                </ul>
+            </nav>
+            <a href="quote.html" class="cta-button">Get a Quote</a>
+        </div>
+    </header>
+
+    <!-- Resources Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Customer Resources</h1>
+            <p>Helpful guides and information to maintain your landscape</p>
+        </div>
+    </section>
+
+    <!-- Resources Content -->
+    <section class="resources-section">
+        <div class="container">
+            <h2>Educational Materials</h2>
+            <p>Download our helpful guides and resources to maintain your landscape.</p>
+            
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <i class="fas fa-book"></i>
+                    <h3>Care Guides</h3>
+                    <ul>
+                        <li>Lawn Maintenance Guide</li>
+                        <li>Plant Care Handbook</li>
+                        <li>Irrigation System Guide</li>
+                        <li>Seasonal Maintenance Tips</li>
+                    </ul>
+                    <a href="#" class="download-link">Download Guides <i class="fas fa-download"></i></a>
+                </div>
+
+                <div class="resource-card">
+                    <i class="fas fa-video"></i>
+                    <h3>Video Tutorials</h3>
+                    <ul>
+                        <li>Basic Lawn Care</li>
+                        <li>Plant Pruning Techniques</li>
+                        <li>Irrigation System Maintenance</li>
+                        <li>Garden Design Tips</li>
+                    </ul>
+                    <a href="#" class="download-link">Watch Videos <i class="fas fa-play"></i></a>
+                </div>
+
+                <div class="resource-card">
+                    <i class="fas fa-database"></i>
+                    <h3>Plant Database</h3>
+                    <ul>
+                        <li>Native Plants Guide</li>
+                        <li>Drought-Tolerant Plants</li>
+                        <li>Seasonal Flowers</li>
+                        <li>Tree Selection Guide</li>
+                    </ul>
+                    <a href="#" class="download-link">Browse Database <i class="fas fa-search"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <p>Find answers to common questions about our services and landscape maintenance.</p>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>How often should I water my lawn?</h3>
+                    <p>Most lawns need 1-1.5 inches of water per week, either from rainfall or irrigation. Water deeply and infrequently to encourage deep root growth.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>When is the best time to prune trees?</h3>
+                    <p>The best time to prune trees is during late winter or early spring when they're dormant. However, some species may have specific timing requirements.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How do I maintain my irrigation system?</h3>
+                    <p>Regular maintenance includes checking for leaks, adjusting sprinkler heads, and seasonal system startup/shutdown. We recommend professional inspection annually.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What should I do about weeds?</h3>
+                    <p>Prevention is key - use pre-emergent herbicides in early spring. For existing weeds, use appropriate post-emergent treatments and maintain healthy turf to prevent weed growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Need More Help?</h2>
+            <p>Our team is here to assist you with any landscaping questions or needs.</p>
+            <a href="quote.html" class="cta-button">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>D&D Landscaping</h3>
+                    <p>Professional landscaping and irrigation services to enhance your outdoor space.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="maintenance.html">Maintenance</a></li>
+                        <li><a href="seasonal-tips.html">Seasonal Tips</a></li>
+                        <li><a href="quote.html">Get a Quote</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html#landscaping">Landscaping</a></li>
+                        <li><a href="services.html#irrigation">Irrigation</a></li>
+                        <li><a href="services.html#maintenance">Maintenance</a></li>
+                        <li><a href="services.html#design">Design</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Garden Street, City, State 12345</p>
+                    <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@ddlandscaping.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 D&D Landscaping. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+>>>>>>> 752bece1fcddc16f7d59bd1e2048a3d0d9c98df1
 </html> 
